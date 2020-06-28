@@ -5,6 +5,13 @@
     <title>Lista zadań</title>
 </head>
 <body>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit", value="Wyślij">
+    </form>
+
     <h1>Lista zadań</h1>
     {% for task in tasks %}
         <ul>
