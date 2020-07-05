@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Is it New Year</title>
+    {% if context %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='yes.css') }}">
+    {% else %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='no.css') }}">
+    {% endif %}
+</head>
+<body>
+    {% if context %}
+        <h1 id="yes">Tak</h1>
+    {% else %}
+        <h1 id="no">Nie</h1>
+    {% endif %}
+</body>
+</html>

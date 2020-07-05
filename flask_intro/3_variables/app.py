@@ -8,13 +8,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    var  = "Hello"
+    var = "Hello"
     return render_template('index.html', context=var)
 
 
 @app.route("/goodbye")
 def goodbye():
-    var  = "Goodbye"
+    var = "Goodbye"
     return render_template('index.html', context=var)
 
 

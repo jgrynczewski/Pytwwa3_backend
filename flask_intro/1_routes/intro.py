@@ -21,7 +21,7 @@ def ewa():
     ,     Ewa"""
 
 
-# Zmienne reguły
+# Zmienne reguły (variable section)
 @app.route("/witaj/<name>")
 def hello(name):
     name = name.title()

@@ -19,5 +19,12 @@ def index():
 @app.route("/newyear")
 def index2():
     now = datetime.datetime.now()
-    var=now.month == 1 and now.day == 1
+    var = now.month == 7 and now.day == 5
     return render_template("index2.html", context=var)
+
+
+@app.route("/new")
+def index3():
+    now = datetime.datetime.now()
+    var = now.month == 7 and now.day == 5
+    return render_template("index3.html", context=var)
