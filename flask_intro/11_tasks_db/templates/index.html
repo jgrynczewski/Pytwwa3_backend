@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadania</title>
+</head>
+<body>
+    <form method="post">
+        <input type="text" name="task" placeholder="Zadanie">
+        <input type="submit" value="Dodaj">
+    </form>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.text }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
