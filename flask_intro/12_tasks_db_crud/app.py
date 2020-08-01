@@ -3,6 +3,7 @@ import os
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import redirect
 from flask_sqlalchemy import SQLAlchemy
 
 from models import Task
@@ -20,14 +21,23 @@ def index():
         task = request.form.get("task")
 
         t = Task(text=task)
-        db.session.add(t)
+        db.session.add(t) # insert
         db.session.commit()
 
     tasks = Task.query.all() #select
     return render_template('index.html', tasks=tasks)
 
 
-@app.route("/update/<int:task_id>")
+@app.route("/update/<int:task_id>", methods=['GET', 'POST'])
 def update(task_id):
     task = Task.query.get(task_id)
-    return f"{task.text}"
+
+    if request.method == "POST":
+        task.text = request.form['task']
+
+        db.session.merge(task) # update
+        db.session.commit()
+
+        return redirect("/")
+
+    return render_template('update.html', task=task)
