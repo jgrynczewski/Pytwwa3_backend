@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadania</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <form method="post">
+        <div class="form-group">
+            <input class="form-control" type="text" name="task" placeholder="Zadanie">
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Dodaj">
+        </div>
+    </form>
+    <ul class="list-group">
+        {% for task in tasks %}
+            <li class="list-group-item"><a href="/update/{{ task.id }}">{{ task.text }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
