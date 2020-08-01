@@ -14,7 +14,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/add", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         task = request.form.get("task")
@@ -23,5 +23,5 @@ def index():
         db.session.add(t)
         db.session.commit()
 
-    tasks = Task.query.all()
+    tasks = Task.query.all() #select
     return render_template('index.html', tasks=tasks)
