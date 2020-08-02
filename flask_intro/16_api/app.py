@@ -20,6 +20,8 @@ def convert():
     amount = request.form.get('amount')
     symbols = request.form.get('symbols').upper()
 
+    print(symbols)
+
     response  = requests.get("http://data.fixer.io/api/latest",
                         params = {'access_key':'032053b70cf616de08638aeaeb1cfd1d',
                                  'symbols': symbols}
