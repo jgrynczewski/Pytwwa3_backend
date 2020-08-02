@@ -17,10 +17,7 @@ def index():
 @app.route("/convert", methods=['POST'])
 def convert():
 
-    amount = request.form.get('amount')
     symbols = request.form.get('symbols').upper()
-
-    print(symbols)
 
     response  = requests.get("http://data.fixer.io/api/latest",
                         params = {'access_key':'032053b70cf616de08638aeaeb1cfd1d',
@@ -37,6 +34,4 @@ def convert():
 
     converter = res_dict.get('rates').get(symbols)
 
-    result = float(amount) / converter
-
-    return jsonify({'success': True, 'rates': round(result, 2)})
+    return jsonify({'success': True, 'rates': round(converter, 2)})
