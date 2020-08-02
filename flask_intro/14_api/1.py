@@ -12,6 +12,6 @@ if response.status_code != 200:
 data = response.json()
 if data.get('rates'):
     res = data.get('rates').get(other.upper())
-    print(f"1 {other.upper()} to {res} EURO")
+    print(f"1 EURO to {res} {other.upper()}")
 else:
     print("Nie rozpoznano waluty.")
