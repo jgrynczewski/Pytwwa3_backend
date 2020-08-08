@@ -34,4 +34,4 @@ def convert():
 
     converter = res_dict.get('rates').get(symbols)
 
-    return jsonify({'success': True, 'rates': round(converter, 2)})
+    return jsonify({'success': True, 'rates': converter})

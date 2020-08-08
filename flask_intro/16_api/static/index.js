@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const response = JSON.parse(response_data);
 
             if (response.success) {
-                const result = Number(amount) / Number(response.rates);
+                const result = (Number(amount) / Number(response.rates)).toFixed(2);
                 document.querySelector('#result').innerHTML = `Zostanie wypłacone ${result} euro.`;
             }
             else {
