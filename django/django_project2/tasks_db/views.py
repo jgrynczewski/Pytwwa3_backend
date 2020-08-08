@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.views.decorators.http import require_http_methods
 
@@ -30,3 +31,23 @@ def register(request):
     return render(request, 'tasks_db/index.html', {
         "tasks": tasks
     })
+
+
+@require_http_methods(["GET", "POST"])
+def update(request, task_id):
+
+    # t = Task.objects.filter(id=task_id).first()
+    # t = Task.objects.get(id=task_id)
+    t = Task.objects.get(pk=task_id)
+
+    if request.method == "GET":
+        return render(request, 'tasks_db/update.html', {
+            "task":t,
+        })
+
+    else:
+        # U (Update) z CRUD
+        t.text = request.POST.get("task")
+        t.save()
+
+        return redirect("tasks_db:index")

@@ -5,6 +5,7 @@ from . import views
 app_name = 'tasks_db'
 
 urlpatterns = [
-    path("", views.index),
-    path("register-task/", views.register, name="register")
+    path("", views.index, name="index"),
+    path("register-task/", views.register, name="register"),
+    path("update/<int:task_id>", views.update, name="update")
 ]

@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Zadania</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-</head>
-<body>
+{% extends 'tasks_db/layout.html' %}
+
+{% block title %}
+<title>Lista zadań</title>
+{% endblock %}
+
+{% block body %}
     <form action="{% url 'tasks_db:register' %}" method="POST">
         {% csrf_token %}
         <div class="form-group">
@@ -18,8 +17,10 @@
 
     <ul class="list-group">
         {% for task in tasks %}
-            <li class="list-group-item">{{ task }}</li>
+<!--    url 'tasks_db:update' task.id  --- rozwiązuje endpoint do: url dla funkcji o nazwie
+   update z przestrzeni nazw tasks_dn, argument następujący po 'tasks_db:update' (tutaj task.id)
+   jest dopasowywany do konwertera -->
+        <li class="list-group-item"><a href="{% url 'tasks_db:update' task.id %}">{{ task }}</a></li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

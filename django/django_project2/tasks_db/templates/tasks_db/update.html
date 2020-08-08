@@ -1,0 +1,20 @@
+{% extends 'tasks_db/layout.html' %}
+
+{% block title %}
+<title>Aktualizacja zadania</title>
+{% endblock %}
+
+{% block body %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <input type="text" name="task" class="form-control" value="{{ task.text }}">
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Aktualizuj">
+    </div>
+</form>
+
+{% endblock %}
