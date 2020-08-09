@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from .forms import ContactForm
+from .forms import MessageForm
 
 # Formularz HTML
 def form1(request):
@@ -24,6 +25,15 @@ def form2(request):
         "form": form
     })
 
-# Django Model Form
+
+# Django Model Form - Formularz modelu
 def form3(request):
-    return HttpResponse("OK")
+    if request.method == "POST":
+        form = MessageForm(request.POST)
+        # walidacja wbudowana
+        form.save()
+
+    form = MessageForm()
+    return render(request, 'forms/form3.html', {
+        'form':form
+    })
