@@ -23,3 +23,7 @@ def form2(request):
     return render(request, 'forms/form2.html', {
         "form": form
     })
+
+# Django Model Form
+def form3(request):
+    return HttpResponse("OK")
