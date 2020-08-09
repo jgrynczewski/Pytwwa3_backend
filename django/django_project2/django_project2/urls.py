@@ -22,5 +22,6 @@ urlpatterns = [
     path('first/', include('first.urls')),
     path('newyear/', include('newyear.urls')),
     path('tasks/', include('tasks.urls')),
-    path('tasks-db/', include('tasks_db.urls'))
+    path('tasks-db/', include('tasks_db.urls')),
+    path('api/', include('api.urls'))
 ]

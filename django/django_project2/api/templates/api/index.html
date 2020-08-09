@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Książki</title>
+</head>
+<body>
+    <form action="{% url 'api:books' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="query" placeholder="Fraza">
+        <input type="submit" value="Znajdź książkę">
+    </form>
+</body>
+</html>
