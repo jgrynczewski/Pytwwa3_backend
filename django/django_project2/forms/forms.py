@@ -1,4 +1,7 @@
 from django import forms
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit
+
 
 from .models import Message
 
@@ -28,3 +31,19 @@ class MessageForm(forms.ModelForm):
             "subject": "Tytuł",
             "body": "Treść"
         }
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.helper = FormHelper()
+        self.helper.form_method='post'
+
+        self.helper.layout = Layout(
+            'name',
+            'email',
+            'category',
+            'subject',
+            'body',
+            Submit('submit', 'Prześlij', css_class='btn btn-primary')
+        )
