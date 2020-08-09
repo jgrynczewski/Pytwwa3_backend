@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Książki</title>
+</head>
+<body>
+    {% for book in books%}
+    <p>
+        <div style="vertical-align:top; display:inline;">
+        {{ book.0 }}</div>
+        <img src="{{ book.1 }}">
+    </p>
+    {% endfor %}
+
+</body>
+</html>
