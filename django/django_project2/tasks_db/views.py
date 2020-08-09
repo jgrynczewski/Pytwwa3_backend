@@ -51,3 +51,12 @@ def update(request, task_id):
         t.save()
 
         return redirect("tasks_db:index")
+
+
+@require_http_methods(["POST"])
+def delete(request, task_id):
+
+    # D (Delete) z CRUD
+    t = Task.objects.filter(id=task_id)
+    t.delete()
+    return redirect("tasks_db:index")

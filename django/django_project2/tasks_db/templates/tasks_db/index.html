@@ -20,7 +20,9 @@
 <!--    url 'tasks_db:update' task.id  --- rozwiązuje endpoint do: url dla funkcji o nazwie
    update z przestrzeni nazw tasks_dn, argument następujący po 'tasks_db:update' (tutaj task.id)
    jest dopasowywany do konwertera -->
-        <li class="list-group-item"><a href="{% url 'tasks_db:update' task.id %}">{{ task }}</a></li>
+        <li class="list-group-item"><a href="{% url 'tasks_db:update' task.id %}">{{ task }}</a>
+        <form style="display:inline;" action="{% url 'tasks_db:delete' task.id%}" method="post">{% csrf_token %}<input type="submit" value="Usuń" class="btn btn-danger"></form>
+        </li>
         {% endfor %}
     </ul>
 {% endblock %}
