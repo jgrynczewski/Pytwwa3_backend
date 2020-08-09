@@ -23,5 +23,6 @@ urlpatterns = [
     path('newyear/', include('newyear.urls')),
     path('tasks/', include('tasks.urls')),
     path('tasks-db/', include('tasks_db.urls')),
-    path('api/', include('api.urls'))
+    path('api/', include('api.urls')),
+    path('forms/', include('forms.urls'))
 ]

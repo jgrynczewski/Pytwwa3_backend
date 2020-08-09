@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz kontaktowy 1</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Imię:</label><input type="text" name="name" id="name">
+        <label for="email">Email:</label><input type="email" name="email" id="email">
+        <label for="category">Kategoria:</label><select name="category" id="category">
+            <option value="" selected>---------</option>
+            <option value="question">Pytanie</option>
+            <option value="opinion">Opinia</option>
+        </select>
+        <label for="subject">Tytuł:</label><input type="text" name="subject" id="subject">
+        <label for="body">Treść:</label><textarea cols="40" rows="10" name="body" id="body" required></textarea>
+        <input type="submit" value="Prześlij">
+    </form>
+</body>
+</html>
