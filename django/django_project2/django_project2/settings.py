@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'api',
     'forms',
     'crud',
+    'register',
     'class_based_views',
     'django.contrib.admin',
     'django.contrib.auth',
