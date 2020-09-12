@@ -27,6 +27,6 @@ urlpatterns = [
     path('forms/', include('forms.urls')),
     path('views/', include('class_based_views.urls')),
     path('crud/', include('crud.urls')),
-    path('register/', include('register.urls'))
-
+    path('register/', include('register.urls')),
+    path('', include('django.contrib.auth.urls')),
 ]
