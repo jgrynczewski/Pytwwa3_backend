@@ -29,4 +29,6 @@ urlpatterns = [
     path('crud/', include('crud.urls')),
     path('register/', include('register.urls')),
     path('', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('google-auth/', include('google_auth.urls')),
 ]
